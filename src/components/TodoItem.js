@@ -3,18 +3,29 @@ import PropTypes from 'prop-types';
 
 
 class TodoItem extends Component {
+    getStyle = () => {
+        return {
+            backgroundColor : '#f4f4f4',
+            padding: '10px',
+            borderBottom: '1px #ccc dotted',
+            textDecoration : this.props.todo.completed ?
+            'line-through' : 'none'
+        }
+    }
+  
     render() {
+        const { id, title } = this.props.todo
         return (
-            <div style ={itemStyle}>
-                <p>{this.props.todo.title}</p>
+            <div style ={this.getStyle()}>
+                <p>
+                    <input type="checkbox" onChange={this.props.markComplete.bind(this, id)}/>
+                {title}
+                </p>
             </div>
         );
     }
 }
 
-const itemStyle = {
-    backgroundColor: '#f4f4f4'
-}
 
 //PropTypes
 TodoItem.propTypes = {
