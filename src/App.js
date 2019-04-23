@@ -3,27 +3,28 @@ import './App.css';
 import Todos from './components/Todos';
 import Header from './components/layout/Header';
 import AddTodo from './components/AddTodo';
+import uuid from 'uuid'
 
 class App extends Component {
   state = {
     todos: [
         {
-            id: 1,
+            id: uuid.v4(),
             title: 'Make Breakfast',
             completed: false
         },
         {
-            id: 2,
+            id: uuid.v4(),
             title: 'Iron Clothes',
             completed: true
         },
         {
-            id: 3,
+            id: uuid.v4(),
             title: 'Pack Lunch boxes',
             completed: false
         },
         {
-            id: 4,
+            id: uuid.v4(),
             title: 'Takeout trash and Keep',
             completed: false
         }
@@ -50,6 +51,12 @@ delTodo = (id) => {
 
 addTodo =(title) => {
   console.log(title)
+  const newTodo = {
+    id: uuid.v4(),
+    title: title,
+    completed: false
+  }
+  this.setState({todos: [...this.state.todos, newTodo]})
 }
   render() {
     console.log(this.state.todos)
