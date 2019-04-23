@@ -6,10 +6,17 @@ import Header from './components/layout/Header';
 import AddTodo from './components/AddTodo';
 import uuid from 'uuid';
 import About from './components/pages/About';
+import axios from 'axios';
 
 class App extends Component {
   state = {
     todos: []
+}
+
+componentDidMount() {
+  axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
+  .then(res => this.setState({todos: res.data}))
+  
 }
 
 //Toggle Complete
