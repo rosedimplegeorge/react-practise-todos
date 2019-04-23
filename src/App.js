@@ -9,28 +9,7 @@ import About from './components/pages/About';
 
 class App extends Component {
   state = {
-    todos: [
-        {
-            id: uuid.v4(),
-            title: 'Make Breakfast',
-            completed: false
-        },
-        {
-            id: uuid.v4(),
-            title: 'Iron Clothes',
-            completed: true
-        },
-        {
-            id: uuid.v4(),
-            title: 'Pack Lunch boxes',
-            completed: false
-        },
-        {
-            id: uuid.v4(),
-            title: 'Takeout trash and Keep',
-            completed: false
-        }
-    ]
+    todos: []
 }
 
 //Toggle Complete
